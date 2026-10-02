@@ -10,11 +10,8 @@ SECURITY_HEADERS = [
     "X-XSS-Protection",
     "Feature-Policy",
     "Public-Key-Pins",
-    "HTTP Strict-Transport-Security",
     "Cache-Control",
-    "CORS Headers",
     "Cross-Origin-Resource-Policy",
-    "Secure Cookies",
     "Expect-CT",
 ]
 
@@ -24,7 +21,7 @@ def check_http_headers(target: str) -> dict:
             target = "http://" + target
 
         response = requests.get(target, timeout=10)
-        headers =  dict(response.headers)
+        headers = dict(response.headers)
 
         found = {}
         missing = []
